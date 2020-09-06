@@ -30,6 +30,12 @@ Following software needs to be in the same folder as this code or in the system 
 
 3. Wavelet toolbox for MATLAB (https://www.mathworks.com/matlabcentral/fileexchange/5104-toolbox-wavelets) to be extracted in the folder toolbox_wavelets.
 
+## Usage
+
+If you intend to use this metric in your work, please cite the following paper:
+
+Khan, Z.A., Beghdadi A., Cheikh, F.A., Kaaniche, M. and Qureshi, M.A. **A Multi-Criteria Contrast Enhancement Evaluation Measure using Wavelet Decomposition**. *IEEE MMSP* (2020)
+
 ## License
 
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
