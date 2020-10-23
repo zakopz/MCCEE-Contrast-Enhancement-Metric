@@ -1,4 +1,4 @@
-
+clear all
 %%% Read original and enhanced images
 orig_image = imread('original_im.bmp');
 if(size(orig_image,3)==3)
@@ -11,7 +11,7 @@ enhanced_image = imread('enhanced_im.bmp');
 if(size(orig_image,3)==3)
     enhanced = rgb2gray(enhanced_image);
 else
-    enhanced =  enhanced_image);
+    enhanced =  enhanced_image;
 end   
 
 %%% Evaluate Steerable Pyramid Wavelet transforms for original and enhanced images
@@ -39,6 +39,12 @@ emee = emee(double(enhanced),8,1); % EMEE
 
 feature_vector = [lom_approx ambe smo_o2_lev2 emee];
 
+%%% Minimum and Range of a training set for normalization
+train_mins = [0.5150 0.0874 0.0734 0.3547];
+train_range = [258.5662 57.7410 56.2966 404.2183];
+ 
+feature_vector_norm = (feature_vector - train_mins) ./ train_range;
+ 
 load('model_q_ceed')
 %%% Use the trained model with LibSVM library to predict the MCCEE metric for the enhanced image
-[mccee_val,acc_q,prob_q] = svmpredict(0.5, feature_vector, model_q, '-q');
+[mccee_val] = svmpredict(0.5, feature_vector_norm, model_q, '-q');
