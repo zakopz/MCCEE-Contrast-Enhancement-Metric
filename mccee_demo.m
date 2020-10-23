@@ -1,13 +1,14 @@
 clear all
 %%% Read original and enhanced images
-orig_image = imread('original_im.bmp');
+orig_image = imread('imgs/original.bmp');
 if(size(orig_image,3)==3)
     original =  rgb2gray(orig_image);
 else
     original =  orig_image;
 end
 
-enhanced_image = imread('enhanced_im.bmp'); 
+enhanced_image = imread('imgs/enhanced_ghe.bmp'); 
+%enhanced_image = imread('imgs/enhanced_mretinex.bmp'); 
 if(size(orig_image,3)==3)
     enhanced = rgb2gray(enhanced_image);
 else
